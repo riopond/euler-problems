@@ -9,7 +9,8 @@
 threes = list(range(3, 1000, 3))
 fives = list(range(5, 1000, 5))
 
-# Loop through the lists and remove duplicate multiples from the fives list
+# Loop through the lists and remove duplicate multiples
+# from the fives list
 for n in threes:
     for m in fives:
         if n == m:
