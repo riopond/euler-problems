@@ -10,9 +10,10 @@ def primeFinder(number):
     if (number % 2 == 0) and (number != 2):
         return False
 
+    half = int(number / 2) + 1
     # Loop that checks each odd number that can possibly be a factor
     # If the number divides by i, the number is NOT prime
-    for i in range(3, (number / 2) + 1, 2):
+    for i in range(3, half, 2):
         if (number % i) == 0:
             return False
 
@@ -20,7 +21,7 @@ def primeFinder(number):
     # Therefore, it is prime
     return True
 
-# Store the given number
+# Store the given number and half of the given as an integer
 # This makes it easy to adjust for different scenarios
 given = 600851475143
 half = int(given / 2) + 1
@@ -29,11 +30,11 @@ half = int(given / 2) + 1
 greatestPrime = None
 
 # Start a loop to check for all possible factors
-for i in range(half):
-    current = half - i
-    if (given % current) == 0:
-        if(primeFinder(current)):
-            greatestPrime = current
+for i in range(2, half):
+    if (given % i) == 0:
+        greaterFactor = given / i
+        if(primeFinder(greaterFactor)):
+            greatestPrime = greaterFactor
             break
 
 if greatestPrime != None:
