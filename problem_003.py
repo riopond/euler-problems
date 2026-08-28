@@ -29,14 +29,19 @@ half = int(given / 2) + 1
 # Initialise a number to store the greatest prime factor
 greatestPrime = None
 
-# Start a loop to check for all possible factors
+# Start a loop to check all possible factors, start from the greatest
+# Range avoids the factors 1 and the number itself
 for i in range(2, half):
     if (given % i) == 0:
-        greaterFactor = given / i
+        greaterFactor = int(given / i)
         if(primeFinder(greaterFactor)):
             greatestPrime = greaterFactor
             break
 
+# Check to make sure the loop found a solution
+# Output the result to the user
 if greatestPrime != None:
     print(f"The greatest prime factor of the given number {given} is: ")
     print(greatestPrime)
+else:
+    print(f"The given number {given} is prime.")
