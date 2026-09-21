@@ -10,8 +10,10 @@ from analyser import primeFinder
 # Setting up this integer gives the user freedom to alter the problem
 requested_prime = 10001
 
+# List that will store all found prime values up to requested
 prime_numbers = []
 
+# Start the prime number search from 2
 current = 2
 
 while len(prime_numbers) != requested_prime:
