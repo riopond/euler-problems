@@ -17,12 +17,15 @@ problem_range = 100
 square_of_sum = 0
 sum_of_squares = 0
 
+# Loop through the desired range
 for current in range(1, problem_range+1):
     square_of_sum += current
     sum_of_squares += pow(current, 2)
 
+# Ensure the square of sum is only done after all values are added
 square_of_sum = pow(square_of_sum, 2)
 
+# Ensure the result is not a negative number
 if sum_of_squares > square_of_sum:
     result = sum_of_squares - square_of_sum
 else:

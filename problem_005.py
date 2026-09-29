@@ -35,8 +35,11 @@ for i in range(2, 21):
         if prime_factorisation[2] < power:
             prime_factorisation[2] = power
 
+# In order to calculate the LCM, multiply all prime factorisations
+# Output the current prime and power being multiplied
 for k, v in prime_factorisation.items():
-    print(f"key: {k} value: {v}")
+    print(f"Prime: {k} Highest Power: {v}")
     multiple *= pow(k, v)
 
+# Output the final result to the user
 print(f"The result is: {multiple}")
