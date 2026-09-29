@@ -16,7 +16,9 @@ import math
 # Adjustable goal sum for users to choose their own value
 goal_sum = 1000
 
+# Loop through every possible combination of Pythagorean triplets
 for a in range(1, goal_sum):
+    # Ensure b is always greater than a
     for b in range(a+1, goal_sum):
         c = math.sqrt(pow(a, 2) + pow(b,2))
 
