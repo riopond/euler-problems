@@ -6,20 +6,18 @@
 
 from analyser import primeFinder
 
-# Initialise with two early known primes
-num = 3
-sum = 2
-
 # Create a variable that can be edited to the user's needs
 limit = 2_000_000
 
-while num <= limit:
-    if primeFinder(num):
-        sum += num
-        print(f"{sum} sum, {num} current num")
+# Initialise with a full list of every number under the limit
+num_list = list(range(2, limit))
 
-    # Increment to the next odd number every iteration
-    num += 2
+for i in num_list:
+    j = pow(i, 2)
+    if j in num_list:
+        num_list.remove(j)
+    for k in range(j, limit):
+        if (k%i) == 0 and (k in num_list):
+            num_list.remove(k)
 
-# Print the result to the user.
-print(f"The sum of all primes under {limit} is: {sum}")
+    print(i)
