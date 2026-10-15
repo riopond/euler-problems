@@ -7,7 +7,7 @@
 from analyser import primeFinder
 
 # Create a variable that can be edited to the user's needs
-limit = 2_000_000
+limit = 2_000_0
 
 # Initialise with a full list of every number under the limit
 num_list = list(range(2, limit))
@@ -20,4 +20,4 @@ for i in num_list:
         if (k%i) == 0 and (k in num_list):
             num_list.remove(k)
 
-    print(i)
+print(sum(num_list))
