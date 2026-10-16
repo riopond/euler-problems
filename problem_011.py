@@ -72,4 +72,44 @@ grid = [[8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91,
         [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 
          67, 48]]
 
-print(grid[0])
+# Intialise a variable to hold the solution
+max_product = 0
+
+# The user can freely choose how many adjacent factors to use.
+factors = 4
+
+for row in range(len(grid)):
+    for column in range(len(grid[row])):
+        # Find the product of the factors going right
+        if column <= (factors - 1):
+            right = grid[row][column]
+            for i in range(1, factors):
+                right *= grid[row][column + i]
+
+        # Find the product of the factors going left
+        if column >= (factors - 1):
+            left = grid[row][column]
+            for i in range(1, factors):
+                left *= grid[row][column - i]
+
+        # Find the product of the factors going  up
+
+        # Find the product of the factors going down
+
+        # Find the product of the factors going up + right
+
+        # Find the products of the factors going up + left
+
+        # Find the products of the factors going down + right
+
+        # Find the products of the factors going down + left
+
+        # Check if any products of the current value are the new max
+        if right > max_product:
+            max_product = right
+        elif left > max_product:
+            max_product = left
+
+# Output the result to the user.
+print(f"The greatest product of {factors} adjacent factors is:")
+print(max_product)
