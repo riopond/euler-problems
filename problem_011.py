@@ -80,35 +80,68 @@ factors = 4
 
 for row in range(len(grid)):
     for column in range(len(grid[row])):
+        current_value = grid[row][column]
+        current_products = []
         # Find the product of the factors going right
         if column <= (factors - 1):
-            right = grid[row][column]
+            right = current_value
             for i in range(1, factors):
                 right *= grid[row][column + i]
+            current_products.append(right)
 
         # Find the product of the factors going left
         if column >= (factors - 1):
-            left = grid[row][column]
+            left = current_value
             for i in range(1, factors):
                 left *= grid[row][column - i]
+            current_products.append(left)
 
         # Find the product of the factors going  up
+        if row >= (factors - 1):
+            up = current_value
+            for i in range(1, factors):
+                up *= grid[row - i][column]
+            current_products.append(up)
 
         # Find the product of the factors going down
+        if row <= (factors - 1):
+            down = current_value
+            for i in range(1, factors):
+                down *= grid[row + i][column]
+            current_products.append(down)
 
         # Find the product of the factors going up + right
+        if (column <= (factors - 1)) and (row >= (factors - 1)):
+            right_up = current_value
+            for i in range(1, factors):
+                right_up *= grid[row - i][column + i]
+            current_products.append(right_up)
 
         # Find the products of the factors going up + left
+        if (column >= (factors - 1)) and (row >= (factors - 1)):
+            left_up = current_value
+            for i in range(1, factors):
+                left_up *= grid[row - i][column - i]
+            current_products.append(left_up)
 
         # Find the products of the factors going down + right
+        if (column <= (factors - 1)) and (row <= (factors - 1)):
+            right_down = current_value
+            for i in range(1, factors):
+                right_down *= grid[row + i][column + i]
+            current_products.append(right_down)
 
         # Find the products of the factors going down + left
+        if (column >= (factors - 1)) and (row <= (factors - 1)):
+            left_down = current_value
+            for i in range(1, factors):
+                left_down *= grid[row + i][column - i]
+            current_products.append(left_down)
 
         # Check if any products of the current value are the new max
-        if right > max_product:
-            max_product = right
-        elif left > max_product:
-            max_product = left
+        for product in current_products:
+            if product > max_product:
+                max_product = product
 
 # Output the result to the user.
 print(f"The greatest product of {factors} adjacent factors is:")
