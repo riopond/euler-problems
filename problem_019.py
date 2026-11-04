@@ -18,4 +18,10 @@
 
 for year in range(1, 100):
     for month in range(1, 13):
-        print(f"This is for month {month} and year {year}")
+        if month in [4, 6, 9, 11]:
+            print(f"This is for 30-day month {month} and year {year}")
+        elif month in [1, 3, 5, 7, 8, 10, 12]:
+            print(f"This is for 31-day month {month} and year {year}")
+        elif month == 2:
+            if (year % 4) == 0:
+                print(f"Year {year} is a leap year, 29 days in Feb")
