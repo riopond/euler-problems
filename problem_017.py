@@ -25,10 +25,13 @@ num_words = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
                   40: 'forty', 50: 'fifty', 60: 'sixty', 70: 'seventy', 
                   80: 'eighty', 90: 'ninety'}
 
-# Variables to store the results
+# Variable to store the result
 sum = 0
 
+# Loop through every digit that needs to be checked
 for i in range(1, maximum + 1):
+    # Optionally, print out the following string to see the digit as
+    # words (no spaces included)
     extended_num = ''
     hundreds, tens, ones = 0, 0, 0
 
@@ -38,7 +41,7 @@ for i in range(1, maximum + 1):
     if current == 1000:
         sum += len('onethousand')
         continue
-    
+
     if current >= 100:
         hundreds = int(current / 100)
         current -= hundreds * 100
@@ -49,6 +52,7 @@ for i in range(1, maximum + 1):
 
     ones = current
 
+    # Craft the string
     if hundreds > 0:
         extended_num += num_words[hundreds] + 'hundred'
         if tens or ones > 0:
