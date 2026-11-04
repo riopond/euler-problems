@@ -16,7 +16,7 @@
 #   twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
 
-for year in range(1, 100):
+for year in range(1, 101):
     for month in range(1, 13):
         if month in [4, 6, 9, 11]:
             print(f"This is for 30-day month {month} and year {year}")
