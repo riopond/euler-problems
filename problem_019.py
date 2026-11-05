@@ -41,3 +41,7 @@ for year in range(1, 101):
         # Day position can only be in the range of 1 to 7
         if day > 7:
             day -= 7
+
+# Output the result to the user
+print("From 1901-2000, there are this many Sundays on the first of the month:")
+print(sundays)
