@@ -20,3 +20,15 @@
 #   hundred divisors?
 
 
+# Change this int depending on how many divisors are desired
+target = 500
+
+divisors = []
+
+# Integers that will be updated within the loop
+iteration = 1
+triangle = 1
+
+while len(divisors) < target:
+    # PLACEHOLDER
+    divisors.append(triangle)
