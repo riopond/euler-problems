@@ -54,11 +54,12 @@ def divisorFinder(number):
     # Initialise the list, which is guaranteed to include 1 and itself.
     divisors = [1]
     if number != 1:
-        divisors.append(number)
         numHalf = int(number / 2)
 
         for i in range(2, numHalf + 1):
             if (number % i) == 0:
                 divisors.append(i)
+
+        divisors.append(number)
 
     return divisors
