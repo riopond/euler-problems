@@ -1,6 +1,8 @@
 """A collection of modules for calculating primes, palindromes,
 and more related to the Euler Problems."""
 
+import math
+
 def primeFinder(number):
     """ A basic function for determining whether an integer is 
     a prime, returning True for prime values and False otherwise """
@@ -48,18 +50,20 @@ def numPalindromeFinder(number):
     else:
         return False
 
-def divisorFinder(number):
+def numDivisorFinder(number):
     """A function designed to find all divisors in a given integer,
     returning a list of all values found."""
-    # Initialise the list, which is guaranteed to include 1 and itself.
-    divisors = [1]
-    if number != 1:
-        numHalf = int(number / 2)
+    # Keeps track of how many divisors are found
+    divisors = 0
 
-        for i in range(2, numHalf + 1):
-            if (number % i) == 0:
-                divisors.append(i)
+    limit = int(math.sqrt(number)) + 1
 
-        divisors.append(number)
+    for i in range(1, limit):
+        if (number % i) == 0:
+            # Determine whether to add 1 or 2 to the divisor number
+            if int(number/i) < limit:
+                divisors += 1
+            else:
+                divisors += 2
 
     return divisors
