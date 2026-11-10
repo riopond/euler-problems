@@ -21,7 +21,10 @@
 
 
 # Change this int depending on how many divisors are desired
-target = 500
+import analyser
+from analyser import divisorFinder
+
+target = 50
 
 divisors = []
 
@@ -30,5 +33,12 @@ iteration = 1
 triangle = 1
 
 while len(divisors) < target:
-    # PLACEHOLDER
-    divisors.append(triangle)
+    divisors = divisorFinder(triangle)
+
+    # Condition checker for the solution
+    if len(divisors) >= target:
+        result = triangle
+        break
+
+    iteration += 1
+    triangle += iteration
