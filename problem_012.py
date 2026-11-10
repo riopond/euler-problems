@@ -20,25 +20,29 @@
 #   hundred divisors?
 
 
-# Change this int depending on how many divisors are desired
 import analyser
-from analyser import divisorFinder
+from analyser import numDivisorFinder
 
-target = 50
+# Change this int depending on how many divisors are desired
+target = 500
 
-divisors = []
+divisors = 1
 
 # Integers that will be updated within the loop
 iteration = 1
 triangle = 1
 
-while len(divisors) < target:
-    divisors = divisorFinder(triangle)
+while divisors < target:
+    divisors = numDivisorFinder(triangle)
 
     # Condition checker for the solution
-    if len(divisors) >= target:
+    if divisors >= target:
         result = triangle
         break
 
     iteration += 1
     triangle += iteration
+
+# Output the result to the user.
+print(f"The following triangle number has {target} divisors:")
+print(result)
