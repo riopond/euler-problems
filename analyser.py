@@ -47,3 +47,18 @@ def numPalindromeFinder(number):
         return True
     else:
         return False
+
+def divisorFinder(number):
+    """A function designed to find all divisors in a given integer,
+    returning a list of all values found."""
+    # Initialise the list, which is guaranteed to include 1 and itself.
+    divisors = [1]
+    if number != 1:
+        divisors.append(number)
+        numHalf = int(number / 2)
+
+        for i in range(2, numHalf + 1):
+            if (number % i) == 0:
+                divisors.append(i)
+
+    return divisors
