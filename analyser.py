@@ -10,10 +10,10 @@ def primeFinder(number):
     if (number % 2 == 0) and (number != 2):
         return False
 
-    half = int(number / 2) + 1
-    # Loop that checks each odd number that can possibly be a factor
+    limit = int(math.sqrt(number)) + 1
+
     # If the number divides by i, the number is NOT prime
-    for i in range(3, half, 2):
+    for i in range(3, limit, 2):
         if (number % i) == 0:
             return False
 
