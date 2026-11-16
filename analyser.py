@@ -51,8 +51,8 @@ def numPalindromeFinder(number):
         return False
 
 def numDivisorFinder(number):
-    """A function designed to find all divisors in a given integer,
-    returning a list of all values found."""
+    """A function designed to find the number of divisors in a given
+    integer, returning a integer of how many values are found."""
     # Keeps track of how many divisors are found
     divisors = 0
 
@@ -67,3 +67,28 @@ def numDivisorFinder(number):
                 divisors += 2
 
     return divisors
+
+def sumDivisorFinder(number, proper):
+    """A function that finds all the divisors of a given integer and
+    returns the sum of said divisors.
+    Takes in a Boolean for whether a proper divisor is necessary."""
+    # Keeps track of the sum of the divisors
+    sum = 0
+
+    limit = int(math.sqrt(number)) + 1
+
+    for i in range(1, limit):
+        if (number % i) == 0:
+            sum += i
+            # If condition is true, then the second divisor will be
+            # evaluated later in the for loop; no need to add now
+            if int(number/i) < limit:
+                continue
+            else:
+                sum += number/i
+
+    # Proper divisor lists do not include the number itself.
+    if proper:
+        sum -= number
+
+    return sum
