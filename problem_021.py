@@ -13,6 +13,8 @@
 #   Evaluate the sum of all amicable numbers under 10000.
 
 
+from analyser import sumDivisorFinder
+
 # Adjustable integer to store the list limit
 limit = 10_000
 numbers = [i for i in range(1, limit)]
@@ -20,4 +22,9 @@ numbers = [i for i in range(1, limit)]
 # List to store all amicable numbers
 amicable = []
 
-print(numbers)
+# Analyse each of the numbers of the list
+while numbers:
+    a = numbers.pop()
+    b = sumDivisorFinder(a, True)
+
+    print(f"a is {a} and b is {b}")
