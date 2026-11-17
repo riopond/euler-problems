@@ -91,4 +91,4 @@ def sumDivisorFinder(number, proper):
     if proper:
         sum -= number
 
-    return sum
+    return int(sum)
