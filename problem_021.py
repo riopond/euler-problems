@@ -22,9 +22,29 @@ numbers = [i for i in range(1, limit)]
 # List to store all amicable numbers
 amicable = []
 
+# Sum of the amicable numbers
+amicable_sum = 0
+
 # Analyse each of the numbers of the list
 while numbers:
     a = numbers.pop()
     b = sumDivisorFinder(a, True)
 
-    print(f"a is {a} and b is {b}")
+    # If there are no other divisors besides 1 and itself, disregard
+    if b == 1:
+        continue
+
+    # Check to see what d(b) is
+    c = sumDivisorFinder(b, True)
+
+    # Check for 
+    #   d(a) = b
+    #   d(b) = a
+    #   a not b
+    if c == a and b != a:
+        print(f"a is {a} and b is {b} and c is {c}")
+        amicable.append(a)
+        amicable.append(b)
+
+for amicable_num in amicable:
+    amicable_sum += amicable_num
