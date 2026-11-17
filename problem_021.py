@@ -42,9 +42,14 @@ while numbers:
     #   d(b) = a
     #   a not b
     if c == a and b != a:
-        print(f"a is {a} and b is {b} and c is {c}")
         amicable.append(a)
         amicable.append(b)
 
-for amicable_num in amicable:
-    amicable_sum += amicable_num
+        # Prevent a repeat of the already-checked integer b
+        numbers.remove(b)
+
+amicable_sum += sum(amicable)
+
+# Output result to the user
+print(f"The sum of all amicable numbers under {limit} is:")
+print(int(amicable_sum))
