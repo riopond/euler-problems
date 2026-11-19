@@ -17,6 +17,7 @@
 # Read in data from the data file. Custom data can be used in the file.
 file = open('data/0022_names.txt')
 data = file.read().split(',') # The data must be manually split
+data = [word[1:-1] for word in data] # Quotation marks removed
 data.sort()
 
 # Dictionary defining every letter and their value
@@ -26,8 +27,16 @@ letters = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7,
             'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
 
 # Store the sum/result
-sum = 0
+list_sum = 0
 
-for name in data:
-    #Debug line
-    print(name)
+for name in range(0, len(data)):
+    name_value = 0
+    # Calculate the numerical value of each name
+    for char in data[name]:
+        name_value += letters.get(char)
+
+    # Multiply the value by the position in the list
+    name_value *= name + 1
+
+    # Add to the result
+    list_sum += name_value
