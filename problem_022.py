@@ -40,3 +40,6 @@ for name in range(0, len(data)):
 
     # Add to the result
     list_sum += name_value
+
+# Output result to the user
+print(f"The sum of all name scores in this dataset is: {list_sum}")
