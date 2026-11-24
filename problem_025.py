@@ -22,21 +22,26 @@
 #   to contain 1000 digits?
 
 
-# List to store all Fibonacci sequence numbers
+# Values to store Fibonacci sequence numbers used for calculation
 first = 1
 second = 1
 
 # Adjustable value for desired number of digits/length of sequence num
 digits = 1000
 
-# Start from the third value
+# Keep track of the index starting with number 2
+# AKA the last known Fibonacci number from our given values
 index = 2
 
-while len(str(second)) != digits:
+# Loop until the solution is found
+while len(str(second)) < digits:
     index += 1
     current = first + second
 
+    # Update the values of (index - 2) and (index - 1)
     first = second
     second = current
 
-print(f"Index {index} has a value of {second} ")
+# Output the result to the user.
+print(f"Index {index} has a length of {digits}.")
+print(f"The exact value is: {second}")
