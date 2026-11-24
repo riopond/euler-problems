@@ -20,3 +20,23 @@
 
 #   What is the index of the first term in the Fibonacci sequence 
 #   to contain 1000 digits?
+
+
+# List to store all Fibonacci sequence numbers
+first = 1
+second = 1
+
+# Adjustable value for desired number of digits/length of sequence num
+digits = 1000
+
+# Start from the third value
+index = 2
+
+while len(str(second)) != digits:
+    index += 1
+    current = first + second
+
+    first = second
+    second = current
+
+print(f"Index {index} has a value of {second} ")
